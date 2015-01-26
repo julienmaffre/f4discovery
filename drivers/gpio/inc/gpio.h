@@ -180,7 +180,7 @@ void GPIO_initReserved(GPIO_TypeDef * _port, u8 _pin);
 /**
  * GPIO pin set as high logic level.
  * The function sets the appropriate 1 bit of the GPIO BSRRL register (0b1).
- * @param[in]	_port GPIO to initialize.
+ * @param[in]	_port GPIO to set.
  * @param[in]	_pin Pin set as high level.
  */
 void GPIO_setPin(GPIO_TypeDef * _port, u8 _pin);
@@ -188,7 +188,7 @@ void GPIO_setPin(GPIO_TypeDef * _port, u8 _pin);
 /**
  * GPIO pin set as low logic level.
  * The function sets the appropriate 1 bit of the GPIO BSRRH register (0b1).
- * @param[in]	_port GPIO to initialize.
+ * @param[in]	_port GPIO to reset.
  * @param[in]	_pin Pin set as low level.
  */
 void GPIO_resetPin(GPIO_TypeDef * _port, u8 _pin);
@@ -196,11 +196,20 @@ void GPIO_resetPin(GPIO_TypeDef * _port, u8 _pin);
 /**
  * GPIO pin set as the indicated logic level.
  * The function sets the appropriate 1 bit of the GPIO BSRRL or BSRRH register (0b1).
- * @param[in]	_port GPIO to initialize.
- * @param[in]	_pin Pin set as low level.
- * @param[in]	_pinState Logic level desired.
+ * @param[in]	_port GPIO to write.
+ * @param[in]	_pin Pin set as desired level.
+ * @param[in]	_pinState Desired logic level.
  */
 void GPIO_writePin(GPIO_TypeDef * _port, u8 _pin, GPIO_PinState _pinState);
+
+/**
+ * GPIO pin toggled.
+ * The function toggles the appropriate 1 bit of the GPIO ODR register.
+ * @param[in]	_port GPIO to toggle.
+ * @param[in]	_pin Pin to toggle.
+ * @par This function is not atomic.
+ */
+void GPIO_togglePin(GPIO_TypeDef * _port, u8 _pin);
 
 
 /*----------------------------------------------------------------------------
