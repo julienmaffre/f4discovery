@@ -50,3 +50,9 @@ Temporary Items
 */html/*
 */latex/*
 
+# Keil trash
+*.uvgui*
+*.uvopt*
+*.uvproj*
+*.uvproj
+

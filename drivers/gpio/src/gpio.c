@@ -25,7 +25,7 @@
  */
 void GPIO_initInput(GPIO_TypeDef * _port, u8 _pin)
 {
-	if (_pin < MAX_PIN) 
+	if (_pin < GPIO_MAX_PIN) 
 	{
 		_port->MODER &= ~(0x3 << 2*_pin);
 	}
@@ -39,7 +39,7 @@ void GPIO_initInput(GPIO_TypeDef * _port, u8 _pin)
  */
 void GPIO_initOutput(GPIO_TypeDef * _port, u8 _pin)
 {
-	if (_pin < MAX_PIN) 
+	if (_pin < GPIO_MAX_PIN) 
 	{
 		_port->MODER &= ~(0x3 << 2*_pin);
 		_port->MODER |= (0x1 << 2*_pin);
@@ -54,7 +54,7 @@ void GPIO_initOutput(GPIO_TypeDef * _port, u8 _pin)
  */
 void GPIO_initAlternate(GPIO_TypeDef * _port, u8 _pin)
 {
-	if (_pin < MAX_PIN) 
+	if (_pin < GPIO_MAX_PIN) 
 	{
 		_port->MODER &= ~(0x3 << 2*_pin);
 		_port->MODER |= (0x2 << 2*_pin);
@@ -69,7 +69,7 @@ void GPIO_initAlternate(GPIO_TypeDef * _port, u8 _pin)
  */
 void GPIO_initAnalog(GPIO_TypeDef * _port, u8 _pin)
 {
-	if (_pin < MAX_PIN) 
+	if (_pin < GPIO_MAX_PIN) 
 	{
 		_port->MODER &= ~(0x3 << 2*_pin);
 		_port->MODER |= (0x3 << 2*_pin);
@@ -89,7 +89,7 @@ void GPIO_initAnalog(GPIO_TypeDef * _port, u8 _pin)
  */
 void GPIO_initOutputPushpull(GPIO_TypeDef * _port, u8 _pin)
 {
-	if (_pin < MAX_PIN) 
+	if (_pin < GPIO_MAX_PIN) 
 	{
 		_port->OTYPER &= ~(0x1 << _pin);
 	}
@@ -103,7 +103,7 @@ void GPIO_initOutputPushpull(GPIO_TypeDef * _port, u8 _pin)
  */
 void GPIO_initOutputOpendrain(GPIO_TypeDef * _port, u8 _pin)
 {
-		if (_pin < MAX_PIN) 
+		if (_pin < GPIO_MAX_PIN) 
 	{
 		_port->OTYPER &= ~(0x1 << _pin);
 		_port->OTYPER |= (0x1 << _pin);
@@ -123,7 +123,7 @@ void GPIO_initOutputOpendrain(GPIO_TypeDef * _port, u8 _pin)
  */
 void GPIO_initOutputLowspeed(GPIO_TypeDef * _port, u8 _pin)
 {
-	if (_pin < MAX_PIN) 
+	if (_pin < GPIO_MAX_PIN) 
 	{
 		_port->OSPEEDR &= ~(0x3 << 2*_pin);
 	}
@@ -137,7 +137,7 @@ void GPIO_initOutputLowspeed(GPIO_TypeDef * _port, u8 _pin)
  */
 void GPIO_initOutputMediumspeed(GPIO_TypeDef * _port, u8 _pin)
 {
-	if (_pin < MAX_PIN) 
+	if (_pin < GPIO_MAX_PIN) 
 	{
 		_port->OSPEEDR &= ~(0x3 << 2*_pin);
 		_port->OSPEEDR |= (0x1 << 2*_pin);
@@ -152,7 +152,7 @@ void GPIO_initOutputMediumspeed(GPIO_TypeDef * _port, u8 _pin)
  */
 void GPIO_initOutputFastspeed(GPIO_TypeDef * _port, u8 _pin)
 {
-	if (_pin < MAX_PIN) 
+	if (_pin < GPIO_MAX_PIN) 
 	{
 		_port->OSPEEDR &= ~(0x3 << 2*_pin);
 		_port->OSPEEDR |= (0x2 << 2*_pin);
@@ -167,7 +167,7 @@ void GPIO_initOutputFastspeed(GPIO_TypeDef * _port, u8 _pin)
  */
 void GPIO_initOutputHighspeed(GPIO_TypeDef * _port, u8 _pin)
 {
-	if (_pin < MAX_PIN) 
+	if (_pin < GPIO_MAX_PIN) 
 	{
 		_port->OSPEEDR &= ~(0x3 << 2*_pin);
 		_port->OSPEEDR |= (0x3 << 2*_pin);
@@ -187,7 +187,7 @@ void GPIO_initOutputHighspeed(GPIO_TypeDef * _port, u8 _pin)
  */
 void GPIO_initNopull(GPIO_TypeDef * _port, u8 _pin)
 {
-	if (_pin < MAX_PIN) 
+	if (_pin < GPIO_MAX_PIN) 
 	{
 		_port->PUPDR &= ~(0x3 << 2*_pin);
 		_port->PUPDR |= (0x0 << 2*_pin);
@@ -202,7 +202,7 @@ void GPIO_initNopull(GPIO_TypeDef * _port, u8 _pin)
  */
 void GPIO_initPullup(GPIO_TypeDef * _port, u8 _pin)
 {
-	if (_pin < MAX_PIN) 
+	if (_pin < GPIO_MAX_PIN) 
 	{
 		_port->PUPDR &= ~(0x3 << 2*_pin);
 		_port->PUPDR |= (0x1 << 2*_pin);
@@ -217,7 +217,7 @@ void GPIO_initPullup(GPIO_TypeDef * _port, u8 _pin)
  */
 void GPIO_initPulldown(GPIO_TypeDef * _port, u8 _pin)
 {
-	if (_pin < MAX_PIN) 
+	if (_pin < GPIO_MAX_PIN) 
 	{
 		_port->PUPDR &= ~(0x3 << 2*_pin);
 		_port->PUPDR |= (0x2 << 2*_pin);
@@ -232,7 +232,7 @@ void GPIO_initPulldown(GPIO_TypeDef * _port, u8 _pin)
  */
 void GPIO_initReserved(GPIO_TypeDef * _port, u8 _pin)
 {
-	if (_pin < MAX_PIN) 
+	if (_pin < GPIO_MAX_PIN) 
 	{
 		_port->PUPDR &= ~(0x3 << 2*_pin);
 		_port->PUPDR |= (0x3 << 2*_pin);
@@ -253,7 +253,7 @@ void GPIO_initReserved(GPIO_TypeDef * _port, u8 _pin)
  */
 void GPIO_setPin(GPIO_TypeDef * _port, u8 _pin)
 {
-	if (_pin < MAX_PIN) 
+	if (_pin < GPIO_MAX_PIN) 
 	{
 		_port->BSRRL &= ~(0x1 << _pin);
 		_port->BSRRL |= (0x1 << _pin);
@@ -268,7 +268,7 @@ void GPIO_setPin(GPIO_TypeDef * _port, u8 _pin)
  */
 void GPIO_resetPin(GPIO_TypeDef * _port, u8 _pin)
 {
-	if (_pin < MAX_PIN) 
+	if (_pin < GPIO_MAX_PIN) 
 	{
 		_port->BSRRH &= ~(0x1 << _pin);
 		_port->BSRRH |= (0x1 << _pin);
@@ -284,7 +284,7 @@ void GPIO_resetPin(GPIO_TypeDef * _port, u8 _pin)
  */
 void GPIO_writePin(GPIO_TypeDef * _port, u8 _pin, GPIO_PinState _pinState)
 {
-	if (_pin < MAX_PIN) 
+	if (_pin < GPIO_MAX_PIN) 
 	{
 		if (_pinState == GPIO_PIN_HIGH)
 		{
@@ -308,7 +308,7 @@ void GPIO_writePin(GPIO_TypeDef * _port, u8 _pin, GPIO_PinState _pinState)
  */
 void GPIO_togglePin(GPIO_TypeDef * _port, u8 _pin)
 {
-	if (_pin < MAX_PIN) 
+	if (_pin < GPIO_MAX_PIN) 
 	{
 		_port->ODR ^= (0x1 << _pin);
 	}	
@@ -330,7 +330,7 @@ void GPIO_togglePin(GPIO_TypeDef * _port, u8 _pin)
  */
 GPIO_PinState GPIO_readPin(GPIO_TypeDef * _port, u8 _pin)
 {
-	if (_pin < MAX_PIN) 
+	if (_pin < GPIO_MAX_PIN) 
 	{
 		if (((_port->IDR & (0x1 << _pin)) >> _pin) == 0x0)
 		{

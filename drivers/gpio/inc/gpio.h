@@ -29,7 +29,7 @@
 #include <stdio.h>
 #include <stm32f4xx.h>
 
-#define MAX_PIN 		16				///< Number max of pin for each port
+#define GPIO_MAX_PIN 		16				///< Number max of pin for each port
 
 /* Enum type to define the 3 logic levels of a pin */
 typedef enum 

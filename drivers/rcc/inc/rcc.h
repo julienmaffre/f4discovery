@@ -36,5 +36,8 @@
 #define __TIM6_CLK_ENABLE()				(RCC->APB1ENR |= RCC_APB1ENR_TIM6EN)
 #define __TIM7_CLK_ENABLE()				(RCC->APB1ENR |= RCC_APB1ENR_TIM7EN)
 
+/* Clock enable for SYSCFG - System Configuration */
+#define __SYSCFG_CLK_ENABLE()			(RCC->APB2ENR |= 0x00004000)
+
 
 #endif
