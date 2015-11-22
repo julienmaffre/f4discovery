@@ -47,34 +47,34 @@ typedef enum
 /**
  * GPIO pin initialization as input.
  * The function sets the appropriate 2 bits of the GPIO MODER register (0b00).
- * @param[in]	_port GPIO to initialize.
- * @param[in]	_pin Pin set as an input.
+ * @param[in]	GPIO GPIO to initialize.
+ * @param[in]	pin Pin set as an input.
  */
-void GPIO_initInput(GPIO_TypeDef * _port, u8 _pin);
+void GPIO_initInput(GPIO_TypeDef * GPIO, uint8_t pin);
 
 /**
  * GPIO pin initialization as output.
  * The function sets the appropriate 2 bits of the GPIO MODER register (0b01).
- * @param[in]	_port GPIO to initialize.
- * @param[in]	_pin Pin set as output.
+ * @param[in]	GPIO GPIO to initialize.
+ * @param[in]	pin Pin set as output.
  */
-void GPIO_initOutput(GPIO_TypeDef * _port, u8 _pin);
+void GPIO_initOutput(GPIO_TypeDef * GPIO, uint8_t pin);
 
 /**
  * GPIO pin initialization as alternate function.
  * The function sets the appropriate 2 bits of the GPIO MODER register (0b10).
- * @param[in]	_port GPIO to initialize.
- * @param[in]	_pin Pin set as alternate.
+ * @param[in]	GPIO GPIO to initialize.
+ * @param[in]	pin Pin set as alternate.
  */
-void GPIO_initAlternate(GPIO_TypeDef * _port, u8 _pin);
+void GPIO_initAlternate(GPIO_TypeDef * GPIO, uint8_t pin);
 
 /**
  * GPIO pin initialization as analog.
  * The function sets the appropriate 2 bits of the GPIO MODER register (0b11).
- * @param[in]	_port GPIO to initialize.
- * @param[in]	_pin Pin set as analog.
+ * @param[in]	GPIO GPIO to initialize.
+ * @param[in]	pin Pin set as analog.
  */
-void GPIO_initAnalog(GPIO_TypeDef * _port, u8 _pin);
+void GPIO_initAnalog(GPIO_TypeDef * GPIO, uint8_t pin);
 
 
 /*----------------------------------------------------------------------------
@@ -84,18 +84,18 @@ void GPIO_initAnalog(GPIO_TypeDef * _port, u8 _pin);
 /**
  * GPIO pin initialization as push-pull (output).
  * The function sets the appropriate 1 bit of the GPIO OTYPER register (0b0).
- * @param[in]	_port GPIO to initialize.
- * @param[in]	_pin Pin set as push-pull.
+ * @param[in]	GPIO GPIO to initialize.
+ * @param[in]	pin Pin set as push-pull.
  */
-void GPIO_initOutputPushpull(GPIO_TypeDef * _port, u8 _pin);
+void GPIO_initOutputPushpull(GPIO_TypeDef * GPIO, uint8_t pin);
  
 /**
  * GPIO pin initialization as open-drain (output).
  * The function sets the appropriate 1 bit of the GPIO OTYPER register (0b1).
- * @param[in]	_port GPIO to initialize.
- * @param[in]	_pin Pin set as open-drain.
+ * @param[in]	GPIO GPIO to initialize.
+ * @param[in]	pin Pin set as open-drain.
  */
-void GPIO_initOutputOpendrain(GPIO_TypeDef * _port, u8 _pin);
+void GPIO_initOutputOpendrain(GPIO_TypeDef * GPIO, uint8_t pin);
 
 
 /*----------------------------------------------------------------------------
@@ -105,34 +105,34 @@ void GPIO_initOutputOpendrain(GPIO_TypeDef * _port, u8 _pin);
 /**
  * GPIO output pin initialization as low speed.
  * The function sets the appropriate 2 bits of the GPIO OSPEEDR register (0b00).
- * @param[in]	_port GPIO to initialize.
- * @param[in]	_pin Pin set as low speed.
+ * @param[in]	GPIO GPIO to initialize.
+ * @param[in]	pin Pin set as low speed.
  */
-void GPIO_initOutputLowspeed(GPIO_TypeDef * _port, u8 _pin);
+void GPIO_initOutputLowspeed(GPIO_TypeDef * GPIO, uint8_t pin);
 
 /**
  * GPIO output pin initialization as medium speed.
  * The function sets the appropriate 2 bits of the GPIO OSPEEDR register (0b01).
- * @param[in]	_port GPIO to initialize.
- * @param[in]	_pin Pin set as medium speed.
+ * @param[in]	GPIO GPIO to initialize.
+ * @param[in]	pin Pin set as medium speed.
  */
-void GPIO_initOutputMediumspeed(GPIO_TypeDef * _port, u8 _pin);
+void GPIO_initOutputMediumspeed(GPIO_TypeDef * GPIO, uint8_t pin);
 
 /**
  * GPIO output pin initialization as fast speed.
  * The function sets the appropriate 2 bits of the GPIO OSPEEDR register (0b10).
- * @param[in]	_port GPIO to initialize.
- * @param[in]	_pin Pin set as fast speed.
+ * @param[in]	GPIO GPIO to initialize.
+ * @param[in]	pin Pin set as fast speed.
  */
-void GPIO_initOutputFastspeed(GPIO_TypeDef * _port, u8 _pin);
+void GPIO_initOutputFastspeed(GPIO_TypeDef * GPIO, uint8_t pin);
 
 /**
  * GPIO output pin initialization as high speed.
  * The function sets the appropriate 2 bits of the GPIO OSPEEDR register (0b11).
- * @param[in]	_port GPIO to initialize.
- * @param[in]	_pin Pin set as high speed.
+ * @param[in]	GPIO GPIO to initialize.
+ * @param[in]	pin Pin set as high speed.
  */
-void GPIO_initOutputHighspeed(GPIO_TypeDef * _port, u8 _pin);
+void GPIO_initOutputHighspeed(GPIO_TypeDef * GPIO, uint8_t pin);
 
 
 /*----------------------------------------------------------------------------
@@ -142,34 +142,34 @@ void GPIO_initOutputHighspeed(GPIO_TypeDef * _port, u8 _pin);
 /**
  * GPIO pin initialization as no pull-up or pull-down.
  * The function sets the appropriate 2 bits of the GPIO PUPDR register (0b00).
- * @param[in]	_port GPIO to initialize.
- * @param[in]	_pin Pin set as no pull-up or pull-down.
+ * @param[in]	GPIO GPIO to initialize.
+ * @param[in]	pin Pin set as no pull-up or pull-down.
  */
-void GPIO_initNopull(GPIO_TypeDef * _port, u8 _pin);
+void GPIO_initNopull(GPIO_TypeDef * GPIO, uint8_t pin);
 
 /**
  * GPIO pin initialization as pull-up.
  * The function sets the appropriate 2 bits of the GPIO PUPDR register (0b01).
- * @param[in]	_port GPIO to initialize.
- * @param[in]	_pin Pin set as no pull-up.
+ * @param[in]	GPIO GPIO to initialize.
+ * @param[in]	pin Pin set as no pull-up.
  */
-void GPIO_initPullup(GPIO_TypeDef * _port, u8 _pin);
+void GPIO_initPullup(GPIO_TypeDef * GPIO, uint8_t pin);
 
 /**
  * GPIO pin initialization as pull-down.
  * The function sets the appropriate 2 bits of the GPIO PUPDR register (0b10).
- * @param[in]	_port GPIO to initialize.
- * @param[in]	_pin Pin set as no pull-down.
+ * @param[in]	GPIO GPIO to initialize.
+ * @param[in]	pin Pin set as no pull-down.
  */
-void GPIO_initPulldown(GPIO_TypeDef * _port, u8 _pin);
+void GPIO_initPulldown(GPIO_TypeDef * GPIO, uint8_t pin);
 
 /**
  * GPIO pin initialization as reserved.
  * The function sets the appropriate 2 bits of the GPIO PUPDR register (0b11).
- * @param[in]	_port GPIO to initialize.
- * @param[in]	_pin Pin set as reserved.
+ * @param[in]	GPIO GPIO to initialize.
+ * @param[in]	pin Pin set as reserved.
  */
-void GPIO_initReserved(GPIO_TypeDef * _port, u8 _pin);
+void GPIO_initReserved(GPIO_TypeDef * GPIO, uint8_t pin);
 
 
 /*----------------------------------------------------------------------------
@@ -180,36 +180,36 @@ void GPIO_initReserved(GPIO_TypeDef * _port, u8 _pin);
 /**
  * GPIO pin set as high logic level.
  * The function sets the appropriate 1 bit of the GPIO BSRRL register (0b1).
- * @param[in]	_port GPIO to set.
- * @param[in]	_pin Pin set as high level.
+ * @param[in]	GPIO GPIO to set.
+ * @param[in]	pin Pin set as high level.
  */
-void GPIO_setPin(GPIO_TypeDef * _port, u8 _pin);
+void GPIO_setPin(GPIO_TypeDef * GPIO, uint8_t pin);
 
 /**
  * GPIO pin set as low logic level.
  * The function sets the appropriate 1 bit of the GPIO BSRRH register (0b1).
- * @param[in]	_port GPIO to reset.
- * @param[in]	_pin Pin set as low level.
+ * @param[in]	GPIO GPIO to reset.
+ * @param[in]	pin Pin set as low level.
  */
-void GPIO_resetPin(GPIO_TypeDef * _port, u8 _pin);
+void GPIO_resetPin(GPIO_TypeDef * GPIO, uint8_t pin);
 
 /**
  * GPIO pin set as the indicated logic level.
  * The function sets the appropriate 1 bit of the GPIO BSRRL or BSRRH register (0b1).
- * @param[in]	_port GPIO to write.
- * @param[in]	_pin Pin set as desired level.
- * @param[in]	_pinState Desired logic level.
+ * @param[in]	GPIO GPIO to write.
+ * @param[in]	pin Pin set as desired level.
+ * @param[in]	pinState Desired logic level.
  */
-void GPIO_writePin(GPIO_TypeDef * _port, u8 _pin, GPIO_PinState _pinState);
+void GPIO_writePin(GPIO_TypeDef * GPIO, uint8_t pin, GPIO_PinState pin_State);
 
 /**
  * GPIO pin toggled.
  * The function toggles the appropriate 1 bit of the GPIO ODR register.
- * @param[in]	_port GPIO to toggle.
- * @param[in]	_pin Pin to toggle.
+ * @param[in]	GPIO GPIO to toggle.
+ * @param[in]	pin Pin to toggle.
  * @par This function is not atomic.
  */
-void GPIO_togglePin(GPIO_TypeDef * _port, u8 _pin);
+void GPIO_togglePin(GPIO_TypeDef * GPIO, uint8_t pin);
 
 
 /*----------------------------------------------------------------------------
@@ -219,12 +219,12 @@ void GPIO_togglePin(GPIO_TypeDef * _port, u8 _pin);
 /**
  * Read logic state of GPIO pin.
  * The function reads the logic state of the desired GPIO pin from the IDR register.
- * @param[in]	_port GPIO to initialize.
- * @param[in]	_pin Pin set as low level.
+ * @param[in]	GPIO GPIO to initialize.
+ * @param[in]	pin Pin set as low level.
  * @retval GPIO_PIN_LOW
  * @retval GPIO_PIN_HIGH
  * @retval GPIO_PIN_UNDEF
  */
-GPIO_PinState GPIO_readPin(GPIO_TypeDef * _port, u8 _pin);
+GPIO_PinState GPIO_readPin(GPIO_TypeDef * GPIO, uint8_t pin);
 
 #endif

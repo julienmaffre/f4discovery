@@ -75,9 +75,9 @@
 /**
  * EXTI line enable.
  * The function sets the appropriate 1 bit of the EXTI IMR register (0b1).
- * @param[in]	_line EXTI line to initialize.
+ * @param[in]	line EXTI line to initialize.
  */
-void EXTI_enableLine(u8 _line);
+void EXTI_enableLine(u8 line);
 
 
 /*----------------------------------------------------------------------------
@@ -87,11 +87,11 @@ void EXTI_enableLine(u8 _line);
 /**
  * Pin association with EXTI line.
  * The function sets the appropriate 4 bits of the appropriate SYSCFG EXTICRx register (x 1..4).
- * @param[in]	_line EXTI line to set.
- * @param[in]	_pin Pin to associate.
- * @details _pin must be in range (SYSCFG_EXTICR_EXTI_PA..SYSCFG_EXTICR_EXTI_PI)
+ * @param[in]	line EXTI line to set.
+ * @param[in]	pin Pin to associate.
+ * @details pin must be in range (SYSCFG_EXTICR_EXTI_PA..SYSCFG_EXTICR_EXTI_PI)
  */
-void EXTI_setLinePin(u8 _line, u8 _pin);
+void EXTI_setLinePin(u8 line, u8 pin);
 
 
 /*----------------------------------------------------------------------------
@@ -101,9 +101,9 @@ void EXTI_setLinePin(u8 _line, u8 _pin);
 /**
  * EXTI line rising edge configuration.
  * The function sets the appropriate 1 bit of the EXTI RTSR register (0b1).
- * @param[in]	_line EXTI line to configure.
+ * @param[in]	line EXTI line to configure.
  */
-void EXTI_setRisingEdge(u8 _line);
+void EXTI_setRisingEdge(u8 line);
 
 
 /*----------------------------------------------------------------------------
@@ -113,9 +113,9 @@ void EXTI_setRisingEdge(u8 _line);
 /**
  * EXTI line falling edge configuration.
  * The function sets the appropriate 1 bit of the EXTI FTSR register (0b1).
- * @param[in]	_line EXTI line to configure.
+ * @param[in]	line EXTI line to configure.
  */
-void EXTI_setFallingEdge(u8 _line);
+void EXTI_setFallingEdge(u8 line);
 
 
 /*----------------------------------------------------------------------------
@@ -125,8 +125,8 @@ void EXTI_setFallingEdge(u8 _line);
 /**
  * EXTI line pending status cleared.
  * The function sets the appropriate 1 bit of the EXTI PR register (0b1).
- * @param[in]	_line EXTI line to clear.
+ * @param[in]	line EXTI line to clear.
  */
-void EXTI_clearPending(u8 _line);
+void EXTI_clearPending(u8 line);
 
 #endif

@@ -52,35 +52,35 @@ typedef enum
  * @retval PIN_LED_RED
  * @retval PIN_LED_BLUE
  */
-u8 LED_getPinNumber(LED_Color _led);
+u8 LED_getPinNumber(LED_Color LED);
 
 /**
  * Initializes led based on its color.
  * The function initialises the appropriate GPIO pin as an Output push-pull, fast-speed pin.
- * @param[in]	_led color of the led (see LED_Color typedef).
+ * @param[in]	LED color of the led (see LED_Color typedef).
  */
-void LED_initLed(LED_Color _led);
+void LED_initLed(LED_Color LED);
  
 /**
  * Switches ON led based on its color.
  * The function sets the appropriate GPIO pin.
- * @param[in]	_led color of the led (see LED_Color typedef).
+ * @param[in]	LED color of the led (see LED_Color typedef).
  */
-void LED_switchON(LED_Color _led);
+void LED_switchON(LED_Color LED);
 
 /**
  * Switches OFF led based on its color.
  * The function resets the appropriate GPIO pin.
- * @param[in]	_led color of the led (see LED_Color typedef).
+ * @param[in]	LED color of the led (see LED_Color typedef).
  */
-void LED_switchOFF(LED_Color _led);
+void LED_switchOFF(LED_Color LED);
 
 /**
  * Toggles led based on its color.
  * The function toggles the appropriate GPIO pin (ON->OFF and OFF->ON).
- * @param[in]	_led color of the led (see LED_Color typedef).
+ * @param[in]	LED color of the led (see LED_Color typedef).
  */
-void LED_toggle(LED_Color _led);
+void LED_toggle(LED_Color LED);
 
  
  
