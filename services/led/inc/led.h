@@ -28,7 +28,7 @@
  
 #define GPIO_LED 		GPIOD 		///< GPIO handling 4 user leds
 
-#define __LED_CLK_ENABLE()				__GPIOD_CLK_ENABLE()		///< Macro to switch ON the LED CLK
+#define LED_CLK_ENABLE()					GPIOD_CLK_ENABLE()		///< Macro to switch ON the LED CLK
  
 #define PIN_LED_GREEN 	12				///< Pin number of green led
 #define PIN_LED_ORANGE 	13				///< Pin number of orange led
