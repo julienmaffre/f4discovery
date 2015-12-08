@@ -14,13 +14,13 @@
 #include "timer.h"
 #include "interrupt.h"
 #include "spi.h"
-#include "mems.h"
+#include "mems_LIS3DSH.h"
 
 /*----------------------------------------------------------------------------
 	MAIN function
  *----------------------------------------------------------------------------*/
 
-int _rcvd = 0x0000;	
+int _rcvd = 0x00000000;	
  
 void initGreenLed(void)
 {
@@ -50,18 +50,18 @@ int main (void) {
 	SPI1_CLK_ENABLE();
 
 	MEMS_init();
-	mems_data = 0x69;
-	MEMS_setData(0x20, mems_data);
+	MEMS_setData(MEMS_CTRL_REG4, 0x60 | MEMS_CTRL_REG4_ZEN | MEMS_CTRL_REG4_YEN | MEMS_CTRL_REG4_XEN);	
+	_rcvd = MEMS_getData(MEMS_CTRL_REG4);
 	
 	while (1) 
 	{
-		_rcvd = MEMS_getData(0x0C);
+		_rcvd = MEMS_getData(MEMS_OUT_Z_H);
+		_rcvd = (_rcvd << 8) | MEMS_getData(MEMS_OUT_Z_L);
 	}
 				
 	// Finally working
 	// TODO: 
 	// - Write drivers for SPI (3h) + Test + Comment
-	// 		- double check uint16_t to uint8_t conversions
 	// - Write service for MEMS (6h) + Test + Comment
 	//		- understand speed rate
 	
