@@ -1,4 +1,4 @@
-#include "mems.h"
+#include "mems_lis3dsh.h"
 
 void MEMS_init(void) 
 {
@@ -53,9 +53,9 @@ void MEMS_setCSHigh(void)
 	GPIO_setPin(MEMS_GPIO_CS, MEMS_PIN_CS);
 }
 
-uint8_t MEMS_getData(uint8_t address)
+uint8_t MEMS_getData(uint8_t reg_address)
 {
-	uint8_t read_address = 0x80 | address;
+	uint8_t read_address = 0x80 | reg_address;
 	uint8_t tmp_rcvd;
 	
 	MEMS_setCSLow();
@@ -73,9 +73,9 @@ uint8_t MEMS_getData(uint8_t address)
 	return ((uint8_t) SPI_readData(MEMS_SPI));
 }
 
-void MEMS_setData(uint8_t address, uint8_t data)
+void MEMS_setData(uint8_t reg_address, uint8_t data)
 {
-	uint8_t write_address = address;
+	uint8_t write_address = reg_address;
 	uint8_t tmp_rcvd;
 	
 	MEMS_setCSLow();
@@ -90,5 +90,57 @@ void MEMS_setData(uint8_t address, uint8_t data)
 	tmp_rcvd = (uint8_t) SPI_readData(MEMS_SPI);
 
 	MEMS_setCSHigh();	
+}
+
+uint8_t MEMS_getBitsInRegister(uint8_t reg_address, uint8_t bits)
+{
+	return (MEMS_getData(reg_address) & bits);
+}
+
+void MEMS_setBitsInRegister(uint8_t reg_address, uint8_t bit)
+{
+	uint8_t reg_value = MEMS_getData(reg_address);
+	reg_value |= bit;
+	MEMS_setData(reg_address, reg_value);	
+}
+
+void MEMS_setValueBitsInRegister(uint8_t reg_address, uint8_t bits, uint8_t data)
+{
+	uint8_t reg_value =  MEMS_getData(reg_address);
+	reg_value &= ~bits;
+	reg_value |= data; // caller has to shift data to the left accordingly to bits
+	MEMS_setData(reg_address, reg_value);		
+}
+
+uint16_t MEMS_getOutX(void)
+{
+	uint16_t rcvd_x = 0x0000;
+	rcvd_x = MEMS_getData(MEMS_OUT_X_H);
+	rcvd_x = (rcvd_x << 8) | MEMS_getData(MEMS_OUT_X_L);
+	
+	return rcvd_x;
+}
+
+uint16_t MEMS_getOutY(void)
+{
+	uint16_t rcvd_y = 0x0000;
+	rcvd_y = MEMS_getData(MEMS_OUT_Y_H);
+	rcvd_y = (rcvd_y << 8) | MEMS_getData(MEMS_OUT_Y_L);
+	
+	return rcvd_y;
+}
+
+uint16_t MEMS_getOutZ(void)
+{
+	uint16_t rcvd_z = 0x0000;
+	rcvd_z = MEMS_getData(MEMS_OUT_Z_H);
+	rcvd_z = (rcvd_z << 8) | MEMS_getData(MEMS_OUT_Z_L);
+	
+	return rcvd_z;
+}
+
+uint8_t MEMS_getTemperature(void)
+{
+	return MEMS_getData(MEMS_TEMPERATURE);
 }
 

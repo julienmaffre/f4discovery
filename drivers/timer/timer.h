@@ -44,21 +44,21 @@
 
 /**
  * Timer enable.
- * The function sets the CEN bit of the TIM CR1 register (0b1).
+ * This function sets the CEN bit of the TIM CR1 register (0b1).
  * @param[in]	TIM Timer to enable.
  */
 void TIM_enable(TIM_TypeDef * TIM);
 
 /**
  * Timer set as upcounter.
- * The function sets the DIR bit of the TIM CR1 register (0b0).
+ * This function sets the DIR bit of the TIM CR1 register (0b0).
  * @param[in]	TIM Timer to initialize.
  */
 void TIM_initUpcount(TIM_TypeDef * TIM);
 
 /**
  * Timer set as downcounter.
- * The function sets the DIR bit of the TIM CR1 register (0b1).
+ * This function sets the DIR bit of the TIM CR1 register (0b1).
  * @param[in]	TIM Timer to initialize.
  */
 void TIM_initDowncount(TIM_TypeDef * TIM);
@@ -70,7 +70,7 @@ void TIM_initDowncount(TIM_TypeDef * TIM);
 
 /**
  * Auto-Reload register set at desired value.
- * The function write the desired ARR in the TIM ARR 16-bit register.
+ * This function writes the desired ARR in the TIM ARR 16-bit register.
  * @param[in]	TIM Timer to set.
  * @param[in]	_arr Value of ARR.
  */
@@ -83,7 +83,7 @@ void TIM_setARR(TIM_TypeDef * TIM, u16 arr);
 
 /**
  * Prescaler register set at desired value.
- * The function write the desired PSC in the TIM PSC 16-bit register.
+ * This function writes the desired PSC in the TIM PSC 16-bit register.
  * @param[in]	TIM Timer to set.
  * @param[in]	_psc Value of PSC.
  */
@@ -96,7 +96,7 @@ void TIM_setPSC(TIM_TypeDef * _timer, u16 psc);
  
 /**
  * Counter register reset.
- * The function resets the TIM CNT 16-bit register.
+ * This function resets the TIM CNT 16-bit register.
  * @param[in]	TIM Timer to reset.
  */
 void TIM_resetCNT(TIM_TypeDef * TIM);
@@ -108,7 +108,7 @@ void TIM_resetCNT(TIM_TypeDef * TIM);
  
 /**
  * Interruption Flag reset.
- * The function resets the UIF bit of the TIM SR 16-bit register.
+ * This function resets the UIF bit of the TIM SR 16-bit register.
  * @param[in]	TIM Timer to reset.
  * @details To be used in most IR handlers to acknowledge the interruption.
  */
@@ -121,7 +121,7 @@ void TIM_resetIRFlag(TIM_TypeDef * TIM);
  
 /**
  * Timer set to generate an event (overflow or underflow) at a constant period.
- * The function sets the TIM PSC register and then calculates the value of TIM ARR 
+ * This function sets the TIM PSC register and then calculates the value of TIM ARR 
  * register according to the TIMxCLK.
  * @param[in]	TIM Timer to set.
  * @param[in]	_usPeriod Period of the interruption in µs.

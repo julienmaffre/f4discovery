@@ -5,7 +5,7 @@
 * @version	1.0  
 * @details	
 *
-*	Header file listing the functions required to initialize the SPI,
+*	Header file listing the functions required to initialise the SPI,
 * read the Tx, Rx and isBusy status and read and write data in the
 * data registers.
 *
@@ -37,14 +37,14 @@
 #include <stdbool.h>
 
 /* Define the different values of SPI Baud Rate Prescaler */
-#define SPI_BaudRatePrescaler_2         ((uint8_t)0x0000)
-#define SPI_BaudRatePrescaler_4         ((uint8_t)0x0001)
-#define SPI_BaudRatePrescaler_8         ((uint8_t)0x0002)
-#define SPI_BaudRatePrescaler_16        ((uint8_t)0x0003)
-#define SPI_BaudRatePrescaler_32        ((uint8_t)0x0004)
-#define SPI_BaudRatePrescaler_64        ((uint8_t)0x0005)
-#define SPI_BaudRatePrescaler_128       ((uint8_t)0x0006)
-#define SPI_BaudRatePrescaler_256       ((uint8_t)0x0007)
+#define SPI_BaudRatePrescaler_2         ((uint8_t)0x00)
+#define SPI_BaudRatePrescaler_4         ((uint8_t)0x01)
+#define SPI_BaudRatePrescaler_8         ((uint8_t)0x02)
+#define SPI_BaudRatePrescaler_16        ((uint8_t)0x03)
+#define SPI_BaudRatePrescaler_32        ((uint8_t)0x04)
+#define SPI_BaudRatePrescaler_64        ((uint8_t)0x05)
+#define SPI_BaudRatePrescaler_128       ((uint8_t)0x06)
+#define SPI_BaudRatePrescaler_256       ((uint8_t)0x07)
 
 /*----------------------------------------------------------------------------
   SPI control register 1 (SPI_CR1)

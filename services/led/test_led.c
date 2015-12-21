@@ -18,7 +18,7 @@
 int main (void) {
 
 	/* LED CLK enabled */
-	__LED_CLK_ENABLE();	
+	LED_CLK_ENABLE();	
 	
 	/* LED Init */
 	LED_initLed(LED_GREEN);

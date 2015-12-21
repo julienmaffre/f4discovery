@@ -36,35 +36,18 @@ void initGreenLed(void)
 }
 
 int main (void) {
-	uint8_t mems_data;
-	
-	initGreenLed();
-	/* 
-	* MEMS 	SCK: 		PA5
-	* 			MOSI:		PA7	(input)
-	*				MISO:		PA6	(output)
-	*				CS:			PE3 (to choose if SPI or I2C - 0 for SPI)
-	*/
-		
-	// SWITCH SPI ON in master mode	
-	SPI1_CLK_ENABLE();
 
+	initGreenLed();
+	
+	MEMS_CLK_ENABLE();
 	MEMS_init();
-	MEMS_setData(MEMS_CTRL_REG4, 0x60 | MEMS_CTRL_REG4_ZEN | MEMS_CTRL_REG4_YEN | MEMS_CTRL_REG4_XEN);	
-	_rcvd = MEMS_getData(MEMS_CTRL_REG4);
+	
+	MEMS_setBitsInRegister(MEMS_CTRL_REG4, MEMS_CTRL_REG4_XEN | MEMS_CTRL_REG4_YEN | MEMS_CTRL_REG4_ZEN);
+	MEMS_setValueBitsInRegister(MEMS_CTRL_REG4, MEMS_CTRL_REG4_ODR, (6 << 4));
 	
 	while (1) 
 	{
-		_rcvd = MEMS_getData(MEMS_OUT_Z_H);
-		_rcvd = (_rcvd << 8) | MEMS_getData(MEMS_OUT_Z_L);
+		_rcvd = MEMS_getTemperature();
 	}
-				
-	// Finally working
-	// TODO: 
-	// - Write drivers for SPI (3h) + Test + Comment
-	// - Write service for MEMS (6h) + Test + Comment
-	//		- understand speed rate
-	
-
 }
 

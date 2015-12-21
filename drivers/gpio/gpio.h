@@ -2,7 +2,6 @@
 * @file 		gpio.h
 * @brief		Header file of GPIO drivers.
 * @author		Julien
-* @date			24/01/2015
 * @version	1.0  
 * @details	
 *
@@ -13,9 +12,9 @@
 * 	states of the pins.
 *		2. Use the function defined in the RCC drivers to set the GPIO 
 *		clocks.
-*				ex: __GPIOD_CLK_ENABLE();
+*				ex: GPIOD_CLK_ENABLE();
 *		3. The initialization of a pin usually goes like this (LED example):
-*				__GPIOD_CLK_ENABLE();
+*				GPIOD_CLK_ENABLE();
 *				GPIO_initOutput(GPIOD, LED_NUMBER);
 *				GPIO_initOutputPushpull(GPIOD, LED_NUMBER);
 *				GPIO_initFastspeed(GPIOD, LED_NUMBER);
